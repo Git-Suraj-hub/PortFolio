@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact</title>
+  <link rel="stylesheet" href="contact.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+
+</head>
+<body>
+  <section id="Contact" class="contanct active">
+    <div class="contact-container">
+        <div class="contact-box">
+            <h2>Let's Work Together</h2>
+            <p class="desc">You can reach me via email, phone, or social media anytime! 📞📧 </p>
+            <div class="contact-detail">
+                <i class="bx bxs-phone"></i>
+                <div class="detail">
+                    <p>Phone</p>
+                    <p>{+91} 6377433749</p>
+                </div>
+            </div>
+            <div class="contact-detail">
+                <i class="bx bxs-envelope"></i>
+                <div class="detail">
+                    <p>Email</p>
+                    <p>suraj773714@gmail.com</p>
+                </div>
+            </div>
+            <div class="contact-detail">
+                <i class="bx bxs-map"></i>
+                <div class="detail">
+                    <p>Adress</p>
+                    <p>Rajasthan(India)</p>
+                </div>
+            </div>
+        </div>
+        <div class="contact-box">
+            <form id="contactForm">
+              <h2 class="heading">Contact <span>Me!</span></h2>
+              <div class="field-box">
+                <input type="hidden" name="access_key" value="ba4fb948-9de1-4e7d-a847-ea6a9be89f38">
+                <input type="text" name="name" placeholder="Full Name" required autocomplete="off">
+                <input type="email" name="email" placeholder="Email Address" required autocomplete="off">
+                <input type="text" name="phone" placeholder="Phone Number" required autocomplete="off">
+              <select class="multiple" name="course" id="course">
+                  <option>Data Cleaning</option>
+                  <option>ML Development</option>
+                  <option>Automation & Python Scripting</option>
+                  <option>Excel</option>
+                  <option>Other Enquiry</option>
+              </select>
+                <input  class="email" type="text" name="subject" placeholder="Email Subject" required autocomplete="off">
+                <textarea name="message" placeholder="Your Message" required autocomplete="off"></textarea>
+              </div>
+              <button type="submit" class="btn">Send Message!</button>
+            </form>
+          </div>
+          
+    </div>
+
+
+<footer>
+    <p>&copy; 2025 Suraj Singh Mehta. All rights reserved.</p>
+</footer>
+<div class="popup" id="popup">
+    <img src="[V-tek_Coding]_Popup_thank_you\tick.png" alt="tick" width="50">
+    <h2 class="heading"><span>Thank You!!!</span></h2>
+    <p> Your details have been successfully submitted. We Will Reply to You Soon!</p>
+    <button type="button" onclick="closePopup()">OK</button>
+  </div>
+
+  <script>
+    let popup = document.getElementById("popup");
+
+    function openPopup() {
+      popup.classList.add("open-popup");
+    }
+
+    function closePopup() {
+      popup.classList.remove("open-popup");
+    }
+
+    // AJAX Form Submission
+    document.getElementById("contactForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const formData = new FormData(this);
+
+      fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      })
+      .then(response => {
+        if (response.ok) {
+          this.reset(); // Reset form
+          openPopup();  // Show popup
+        } else {
+          alert("Form submission failed.");
+        }
+      })
+      .catch(error => {
+        alert("Error: " + error.message);
+      });
+    });
+  </script>
+
+
+
+<script src="script.js"></script>
+</section>
+</body>
+</html>
