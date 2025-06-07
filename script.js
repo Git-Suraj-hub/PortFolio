@@ -82,7 +82,7 @@ resumeBtns.forEach((btn,idx) => {
 const arrowRight = document.querySelector('.portfolio-box .navigation .arrow-right');
 const arrowLeft = document.querySelector('.portfolio-box .navigation .arrow-left');
 let index = 0;
-const maxIndex = 1; // Total slides - 1
+const maxIndex = 2; // Total slides - 1
 
 const activePortFolio = () => {
     const imgSlide = document.querySelector('.portfolio-carousel .img-slide');
